@@ -22,3 +22,11 @@ body {
   flex-direction: column;
   flex-wrap: nowrap;
 }
+
+.hero {
+    margin: 1.5rem;
+}
+
+.hero__title {
+    font-size: 5rem;
+}
