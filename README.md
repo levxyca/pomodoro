@@ -7,6 +7,6 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
 
 ## Processo de Desenvolvimento
 
-1.
+1. Criação do site *Pomodoro* usando HTML semântico e CSS.
 
 ## Glossário
