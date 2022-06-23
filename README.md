@@ -11,6 +11,7 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
         - [Opcional](#opcional)
     - [Como deve funcionar?](#como-deve-funcionar)
         - [Botões](#botões)
+        - [Timer](#timer)
 
 ### Estruturação da lógica para a construção do pomodoro
 
@@ -37,10 +38,10 @@ Por padrão o pomodoro irá vir com o timer de 25 minutos, sendo possível alter
 
 Clicando no `pomodoro` ele mostra o timer de 25 minutos e clicando no `short break` ele mostra o timer de intervalo de 5 minutos.
 
-Para isso, criei um objeto `timer` que tem como propriedade `pomodoro` e `short break`, inicializando eles com seus respectivos minutos.
+Para isso, criei um objeto `time` que tem como propriedade `pomodoro` e `short break`, inicializando eles com seus respectivos minutos.
 
 ```javascript
-const timer = {
+const time = {
     pomodoro: 25,
     shortBreak: 5,
 }
@@ -56,7 +57,7 @@ Inicializei o valor do meu pomodoro com o timer de 25 minutos por padrão.
 
 ```javascript
 window.addEventListener("DOMContentLoaded", function () {
-  view.textContent = `${timer.pomodoro}:00`;
+  view.textContent = `${time.pomodoro}:00`;
 });
 ```
 
@@ -71,10 +72,26 @@ const pomodoroBtn = document.querySelector(".pomodoro");
 const shortBreakBtn = document.querySelector(".shortbreak");
 
 pomodoroBtn.addEventListener("click", () => {
-  view.textContent = `${timer.pomodoro}:00`;
+  view.textContent = `${time.pomodoro}:00`;
 });
 
 shortBreakBtn.addEventListener("click", () => {
-  view.textContent = `${timer.shortBreak}:00`;
+  view.textContent = `${time.shortBreak}:00`;
 });
 ```
+
+##### Timer
+
+A primeira coisa é entender como trabalhar com intervalos de tempo no JavaScript.
+
+Temos o método `setInterval()`que repete chamadas de funções ou executam trechos de código com um tempo de espera fixo entre cada chamada.
+
+Para o timer funcionar, irei usar o `setInterval()` para fazer a contagem do tempo e ir mostrando isso no HTML.
+
+Comecei adicionando ao nosso objeto `time` a propriedade `secondsTimer`, `seconds` e `minutes` sendo inicialidados com o valor `0` para auxiliar na função que irei criar chamada `timer`.
+
+Essa função irá receber como parâmetro os minutos que o timer vai funcionar.
+
+Dentro da função, esses minutos serão transformados em segundos e irei adicionar um `setInterval()` que vai executar uma outra função onde transformo os segundos novamente em minutos para mostrar no HTML e esses segundos irão ser subtraídos cada vez que a função executar até eles segundos serem igual a 0.
+
+Quando chegar em 0, é executado um `clearInterval()` para cancelar essa execução.
