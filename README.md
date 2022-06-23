@@ -12,7 +12,7 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
     - [Como deve funcionar?](#como-deve-funcionar)
         - [Botões](#botões)
         - [Timer](#timer)
-        - [Executando o timer de acordo com o modo escolhido](#executando-o-timer-de-acordo-com-o-modo-escolhido)
+    - [Executando o timer de acordo com o modo escolhido](#executando-o-timer-de-acordo-com-o-modo-escolhido)
 
 ### Estruturação da lógica para a construção do pomodoro
 
