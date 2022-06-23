@@ -12,6 +12,7 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
     - [Como deve funcionar?](#como-deve-funcionar)
         - [Botões](#botões)
         - [Timer](#timer)
+        - [Executando o timer de acordo com o modo escolhido](#executando-o-timer-de-acordo-com-o-modo-escolhido)
 
 ### Estruturação da lógica para a construção do pomodoro
 
@@ -19,8 +20,8 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
 
 ##### Escopo
 
-- [x] [Timer 25 min](#timer-de-25-min): O timer deve conter uma tela com os minutos e segundos regressivamente;
-- [ ] Timer de intervalo (5 min) : Uma opção para iniciar o timer como modo de intervalo, com 5 minutos regressivamente (mesmo timer da funcionalidade anterior);
+- [x] Timer 25 min: O timer deve conter uma tela com os minutos e segundos regressivamente;
+- [x] Timer de intervalo (5 min) : Uma opção para iniciar o timer como modo de intervalo, com 5 minutos regressivamente (mesmo timer da funcionalidade anterior);
 - [ ] Som de notificação:  Fazer um som ao terminar o tempo do timer.
 
 ##### Opcional
@@ -28,7 +29,7 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
 - [ ] Mostrar notificações na plataforma escolhida (android notification/ ios notification/ chrome notification);
 - [ ] Ter uma opção para mudar o tempo do pomodoro de 25 minutos para qualquer outro;
 - [ ] Sugerir para o usuário depois de ter feito 4 pomodoros (timer 25 min) um descanso de  10 min;
-Contar a quantidade de pomodoros feitos no dia.
+- [ ] Contar a quantidade de pomodoros feitos no dia.
 
 #### Como deve funcionar?
 
@@ -95,3 +96,27 @@ Essa função irá receber como parâmetro os minutos que o timer vai funcionar.
 Dentro da função, esses minutos serão transformados em segundos e irei adicionar um `setInterval()` que vai executar uma outra função onde transformo os segundos novamente em minutos para mostrar no HTML e esses segundos irão ser subtraídos cada vez que a função executar até eles segundos serem igual a 0.
 
 Quando chegar em 0, é executado um `clearInterval()` para cancelar essa execução.
+
+```javascript
+function timer(mins) {
+  time.secondsTimer = mins * 60 || 0;
+  let interval = setInterval(() => {
+    time.seconds = time.secondsTimer % 60 || 0;
+    time.minutes = parseInt(time.secondsTimer / 60) % 60 || 0;
+    view.textContent = `${time.minutes}:${time.seconds}`;
+    time.secondsTimer--;
+    if (!time.secondsTimer) {
+      clearInterval(interval);
+      view.textContent = "00:00";
+    }
+  }, 1000);
+}
+```
+
+#### Executando o timer de acordo com o modo escolhido
+
+Selecionei o botão `start` e adicionei um evento de click nele que dispara uma função.
+
+Para saber o tempo que será usado no timer, eu verifico o conteúdo dentro da minha `view` que é onde o tempo é mostrado no HTML.
+
+Pego esse tempo e executo a função `timer` passando com parâmetro o tempo.

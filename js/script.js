@@ -1,6 +1,7 @@
 const view = document.querySelector(".timer__container-view");
 const pomodoroBtn = document.querySelector(".pomodoro");
 const shortBreakBtn = document.querySelector(".shortbreak");
+const startBtn = document.querySelector(".timer__container-start");
 
 const time = {
   pomodoro: 25,
@@ -35,3 +36,8 @@ function timer(mins) {
     }
   }, 1000);
 }
+
+startBtn.addEventListener("click", () => {
+  const viewTime = parseInt(view.textContent);
+  timer(viewTime);
+});
