@@ -3,6 +3,8 @@ const pomodoroBtn = document.querySelector(".pomodoro");
 const shortBreakBtn = document.querySelector(".shortbreak");
 const startBtn = document.querySelector(".timer__container-start");
 
+const notification = new Audio("../assets/notification.mp3");
+
 const time = {
   pomodoro: 25,
   shortBreak: 5,
@@ -32,6 +34,7 @@ function timer(mins) {
     time.secondsTimer--;
     if (!time.secondsTimer) {
       clearInterval(interval);
+      notification.play();
       view.textContent = "00:00";
     }
   }, 1000);

@@ -13,6 +13,7 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
         - [Botões](#botões)
         - [Timer](#timer)
     - [Executando o timer de acordo com o modo escolhido](#executando-o-timer-de-acordo-com-o-modo-escolhido)
+    - [Som de notificação](#som-de-notificação)
 
 ### Estruturação da lógica para a construção do pomodoro
 
@@ -22,7 +23,7 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
 
 - [x] Timer 25 min: O timer deve conter uma tela com os minutos e segundos regressivamente;
 - [x] Timer de intervalo (5 min) : Uma opção para iniciar o timer como modo de intervalo, com 5 minutos regressivamente (mesmo timer da funcionalidade anterior);
-- [ ] Som de notificação:  Fazer um som ao terminar o tempo do timer.
+- [x] Som de notificação:  Fazer um som ao terminar o tempo do timer.
 
 ##### Opcional
 
@@ -120,3 +121,13 @@ Selecionei o botão `start` e adicionei um evento de click nele que dispara uma 
 Para saber o tempo que será usado no timer, eu verifico o conteúdo dentro da minha `view` que é onde o tempo é mostrado no HTML.
 
 Pego esse tempo e executo a função `timer` passando com parâmetro o tempo.
+
+#### Som de notificação
+
+Criei uma pasta `assets` onde irei armazenar o audio que quero tocar quando o tempo do timer acabar.
+
+O construtor `Audio()` cria e retorna um novo `HTMLAudioElement` que pode ser anexado a um documento para o usuário interagir e/ou ouvir, ou pode ser usado fora da tela para gerenciar e reproduzir áudio.
+
+No caso dessa aplicação, irei instanciar uma nova classe chamada `notification` passando o audio escolhido como parâmetro.
+
+Dentro da função `timer`, junto com o `clearInterval()` executo o método `play()`, fazendo com que o áudio seja tocado quando o timer for finalizado.
