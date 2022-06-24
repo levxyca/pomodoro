@@ -12,6 +12,7 @@ const time = {
   seconds: 0,
   minutes: 0,
   qtdPomodoro: 0,
+  qtdPomodoro25: 0,
 };
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -37,10 +38,19 @@ function timer(mins) {
       clearInterval(interval);
       notification.play();
       view.textContent = "00:00";
-      if (mins !== 5) {
+      if (mins === time.pomodoro) {
+        time.qtdPomodoro25 += 1;
+      }
+      if (mins !== time.shortBreak) {
         time.qtdPomodoro += 1;
       }
-      alert(`Congratulations, you completed ${time.qtdPomodoro} pomodoro(s)`);
+      if (time.qtdPomodoro25 === 4) {
+        alert(
+          "You've already completed four 25-minute pomodoros, please get some rest!"
+        );
+      } else {
+        alert(`Congratulations, you completed ${time.qtdPomodoro} pomodoro(s)`);
+      }
     }
   }, 1000);
 }

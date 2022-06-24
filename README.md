@@ -15,6 +15,7 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
     - [Executando o timer de acordo com o modo escolhido](#executando-o-timer-de-acordo-com-o-modo-escolhido)
     - [Som de notificação](#som-de-notificação)
     - [Contar a quantidade de pomodoros feitos no dia](#contar-a-quantidade-de-pomodoros-feitos-no-dia)
+    -[Sugerir para a pessoa usuária depois de ter feito 4 pomodoros (timer 25 min) um descanso de  10 min](#sugerir-para-a-pessoa-usuária-depois-de-ter-feito-4-pomodoros-timer-25-min-um-descanso-de-10-min)
 
 ### Estruturação da lógica para a construção do pomodoro
 
@@ -30,7 +31,7 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
 
 - [ ] Mostrar notificações na plataforma escolhida (android notification/ ios notification/ chrome notification);
 - [ ] Ter uma opção para mudar o tempo do pomodoro de 25 minutos para qualquer outro;
-- [ ] Sugerir para o usuário depois de ter feito 4 pomodoros (timer 25 min) um descanso de  10 min;
+- [x] Sugerir para o usuário depois de ter feito 4 pomodoros (timer 25 min) um descanso de  10 min;
 - [x] Contar a quantidade de pomodoros feitos no dia.
 
 #### Como deve funcionar?
@@ -137,6 +138,14 @@ Dentro da função `timer`, junto com o `clearInterval()` executo o método `pla
 
 Adicionei ao meu objeto `time` a propriedade `qtdPomodoro`.
 
-Se a quantidade de minutos for diferente de 5, ele adiciona +1 ao completar o pomodoro.
+Dentro da função `timer`, ao final do pomodoro, se a quantidade de minutos inicial for diferente de 5, ele adiciona +1 ao completar o pomodoro.
 
 Ao final do pomodoro toca um alerta avisando a quantidade de pomodoros já realizados.
+
+#### Sugerir para a pessoa usuária depois de ter feito 4 pomodoros (timer 25 min) um descanso de  10 min
+
+Adicionei ao meu objeto `time` a propriedade `qtdPomodoro25`.
+
+Adicionei uma verificação dentro da função `timer` que segue a lógica anterior, mas dessa vez verificando se os minutos são especificamente 25.
+
+Quando `qtdPomodoro25` chega a quantidade 4, é disparado um alerta ao final do pomodoro sugerindo para a usuária depois de ter feito 4 pomodoros (timer 25 min) um descanso de  10 min.
