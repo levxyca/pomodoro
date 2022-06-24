@@ -2,6 +2,9 @@ const view = document.querySelector(".timer__container-view");
 const pomodoroBtn = document.querySelector(".pomodoro");
 const shortBreakBtn = document.querySelector(".shortbreak");
 const startBtn = document.querySelector(".timer__container-start");
+const editBtn = document.querySelector(".timer__container-edit");
+const inputTimer = document.querySelector(".timer__container-input");
+const okBtn = document.querySelector(".timer__container-ok");
 
 const notification = new Audio("../assets/notification.mp3");
 
@@ -54,6 +57,21 @@ function timer(mins) {
     }
   }, 1000);
 }
+
+editBtn.addEventListener("click", () => {
+  inputTimer.classList.remove("none");
+  okBtn.classList.remove("none");
+  okBtn.addEventListener("click", () => {
+    let value = inputTimer.value;
+    if (value && (value > time.shortBreak || typeof value === "number")) {
+      view.textContent = `${value}:00`;
+      okBtn.classList.add("none");
+      inputTimer.classList.add("none");
+    } else {
+      alert("Enter only the number of minutes, please!");
+    }
+  });
+});
 
 startBtn.addEventListener("click", () => {
   const viewTime = parseInt(view.textContent);

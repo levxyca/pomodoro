@@ -16,6 +16,7 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
     - [Som de notificação](#som-de-notificação)
     - [Contar a quantidade de pomodoros feitos no dia](#contar-a-quantidade-de-pomodoros-feitos-no-dia)
     -[Sugerir para a pessoa usuária depois de ter feito 4 pomodoros (timer 25 min) um descanso de  10 min](#sugerir-para-a-pessoa-usuária-depois-de-ter-feito-4-pomodoros-timer-25-min-um-descanso-de-10-min)
+    - [Ter uma opção para mudar o tempo do pomodoro de 25 minutos para qualquer outro](#ter-uma-opção-para-mudar-o-tempo-do-pomodoro-de-25-minutos-para-qualquer-outro)
 
 ### Estruturação da lógica para a construção do pomodoro
 
@@ -30,7 +31,7 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
 ##### Opcional
 
 - [ ] Mostrar notificações na plataforma escolhida (android notification/ ios notification/ chrome notification);
-- [ ] Ter uma opção para mudar o tempo do pomodoro de 25 minutos para qualquer outro;
+- [x] Ter uma opção para mudar o tempo do pomodoro de 25 minutos para qualquer outro;
 - [x] Sugerir para o usuário depois de ter feito 4 pomodoros (timer 25 min) um descanso de  10 min;
 - [x] Contar a quantidade de pomodoros feitos no dia.
 
@@ -149,3 +150,11 @@ Adicionei ao meu objeto `time` a propriedade `qtdPomodoro25`.
 Adicionei uma verificação dentro da função `timer` que segue a lógica anterior, mas dessa vez verificando se os minutos são especificamente 25.
 
 Quando `qtdPomodoro25` chega a quantidade 4, é disparado um alerta ao final do pomodoro sugerindo para a usuária depois de ter feito 4 pomodoros (timer 25 min) um descanso de  10 min.
+
+#### Ter uma opção para mudar o tempo do pomodoro de 25 minutos para qualquer outro
+
+Criei um botão no HTML para permitir com que a pessoa usuária consiga alterar os minutos do pomodoro através de um input criado.
+
+Adicionei um evento de click no botão de editar onde ao clicar é permitido a pessoa usuária inserir o tempo que desejar no pomodoro.
+
+Faço algumas validações para garantir que irei receber apenas os números dos minutos.
