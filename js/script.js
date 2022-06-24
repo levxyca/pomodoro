@@ -11,6 +11,7 @@ const time = {
   secondsTimer: 0,
   seconds: 0,
   minutes: 0,
+  qtdPomodoro: 0,
 };
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -36,6 +37,10 @@ function timer(mins) {
       clearInterval(interval);
       notification.play();
       view.textContent = "00:00";
+      if (mins !== 5) {
+        time.qtdPomodoro += 1;
+      }
+      alert(`Congratulations, you completed ${time.qtdPomodoro} pomodoro(s)`);
     }
   }, 1000);
 }

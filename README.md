@@ -14,6 +14,7 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
         - [Timer](#timer)
     - [Executando o timer de acordo com o modo escolhido](#executando-o-timer-de-acordo-com-o-modo-escolhido)
     - [Som de notificação](#som-de-notificação)
+    - [Contar a quantidade de pomodoros feitos no dia](#contar-a-quantidade-de-pomodoros-feitos-no-dia)
 
 ### Estruturação da lógica para a construção do pomodoro
 
@@ -30,7 +31,7 @@ Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
 - [ ] Mostrar notificações na plataforma escolhida (android notification/ ios notification/ chrome notification);
 - [ ] Ter uma opção para mudar o tempo do pomodoro de 25 minutos para qualquer outro;
 - [ ] Sugerir para o usuário depois de ter feito 4 pomodoros (timer 25 min) um descanso de  10 min;
-- [ ] Contar a quantidade de pomodoros feitos no dia.
+- [x] Contar a quantidade de pomodoros feitos no dia.
 
 #### Como deve funcionar?
 
@@ -131,3 +132,11 @@ O construtor `Audio()` cria e retorna um novo `HTMLAudioElement` que pode ser an
 No caso dessa aplicação, irei instanciar uma nova classe chamada `notification` passando o audio escolhido como parâmetro.
 
 Dentro da função `timer`, junto com o `clearInterval()` executo o método `play()`, fazendo com que o áudio seja tocado quando o timer for finalizado.
+
+#### Contar a quantidade de pomodoros feitos no dia
+
+Adicionei ao meu objeto `time` a propriedade `qtdPomodoro`.
+
+Se a quantidade de minutos for diferente de 5, ele adiciona +1 ao completar o pomodoro.
+
+Ao final do pomodoro toca um alerta avisando a quantidade de pomodoros já realizados.
