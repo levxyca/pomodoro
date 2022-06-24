@@ -6,6 +6,17 @@ const editBtn = document.querySelector(".timer__container-edit");
 const inputTimer = document.querySelector(".timer__container-input");
 const okBtn = document.querySelector(".timer__container-ok");
 
+Notification.requestPermission();
+
+function spawnNotificationBrowser(opt) {
+  let n = new Notification(opt.title, opt.opt);
+
+  n.addEventListener("click", function () {
+    n.close();
+    window.focus();
+  });
+}
+
 const notification = new Audio("../assets/notification.mp3");
 
 const time = {
@@ -48,11 +59,19 @@ function timer(mins) {
         time.qtdPomodoro += 1;
       }
       if (time.qtdPomodoro25 === 4) {
-        alert(
-          "You've already completed four 25-minute pomodoros, please get some rest!"
-        );
+        spawnNotificationBrowser({
+          opt: {
+            body: "You've already completed four 25-minute pomodoros, please get some rest!",
+          },
+          title: "Congratulations! Don't forget to rest!",
+        });
       } else {
-        alert(`Congratulations, you completed ${time.qtdPomodoro} pomodoro(s)`);
+        spawnNotificationBrowser({
+          opt: {
+            body: `Congratulations, you completed ${time.qtdPomodoro} pomodoro(s)`,
+          },
+          title: "Congratulations!",
+        });
       }
     }
   }, 1000);
@@ -68,7 +87,9 @@ editBtn.addEventListener("click", () => {
       okBtn.classList.add("none");
       inputTimer.classList.add("none");
     } else {
-      alert("Enter only the number of minutes, please!");
+      alert(
+        "Just enter the minutes value, please! Oh, and it needs to be longer than 5 minutes!"
+      );
     }
   });
 });
