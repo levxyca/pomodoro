@@ -2,9 +2,11 @@
 
 Uma ferramenta para auxiliar quem trabalha com o método pomodoro 🍎
 
+<img width="960" alt="image" src="https://github.com/levxyca/pomodoro/assets/19956731/a180c42d-6ed7-4bcb-9ae6-bf2d692c968a">
+
 ## Processo de Desenvolvimento
 
-1. Criação do site *Pomodoro* usando HTML semântico e CSS
+1. Criei o site *Pomodoro* utilizando HTML semântico e CSS, buscando uma estrutura clara e organizada para melhorar a acessibilidade e a usabilidade do usuário
 2. [Estruturação da lógica para a construção do pomodoro](#estruturação-da-lógica-para-a-construção-do-pomodoro)
     - [O que meu pomodoro faz?](#o-que-meu-pomodoro-faz)
         - [Escopo](#escopo)
@@ -169,3 +171,5 @@ A primeira coisa é pedir permissão a pessoa usuária para poder usar as notifi
 Por fim, criei uma função para gerar as notificações, que recebe como parâmetro um objeto com as opções da notificação.
 
 Dentro da função, instâncio um construtor `Notification` passando as opções que recebo por parâmetro.
+
+Feito com 💙 por [levxyca](https://levxyca.com/)
